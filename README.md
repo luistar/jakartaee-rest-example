@@ -22,10 +22,10 @@ associated with the JWT is returned.
 
 ### /todo endpoint
 This endpoint can be used to manage a To-do list. It supports the following methods:
-* `GET /todo`: returns a list of the stored To-do items;
-* `POST /todo`: Expects a JSON with the id, title and description properties in the request body, and saves the new To-do item 
+* `GET /todos`: returns a list of the stored To-do items;
+* `POST /todos`: Expects a JSON with the id, title and description properties in the request body, and saves the new To-do item 
 in the list. 
-* `DELETE /todo/{id}`: Deletes the To-do Item with the given `{id}`.
+* `DELETE /todos/{id}`: Deletes the To-do Item with the given `{id}`.
 
 ## Running the REST API locally (requires Java 17+)
 To run the REST API locally, build the project using Maven and run the `Main` class 
