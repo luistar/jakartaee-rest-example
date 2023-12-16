@@ -10,9 +10,9 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * Todo resource (exposed at "todo" path)
+ * Todo resource (exposed at "todos" path)
  */
-@Path("/todo")
+@Path("/todos")
 public class TodoController {
 
     @GET

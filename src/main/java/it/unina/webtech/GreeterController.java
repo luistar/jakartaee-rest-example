@@ -10,10 +10,10 @@ import jakarta.ws.rs.core.Request;
 
 import java.util.List;
 
-@Path("greet")
+@Path("greet") //apply this for requests on the /greet path
 public class GreeterController {
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @GET //when a request is made using the GET verb, invoke this method
+    @Produces(MediaType.TEXT_PLAIN) //the output is to be converted as plain text
     public String greet(@Context HttpHeaders headers){
         String token = headers.getHeaderString(HttpHeaders.AUTHORIZATION);
         if(token == null || !token.startsWith("Bearer"))
@@ -28,5 +28,4 @@ public class GreeterController {
             }
         }
     }
-
 }

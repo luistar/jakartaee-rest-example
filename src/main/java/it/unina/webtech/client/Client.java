@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 
 public class Client {
 
-    private static final String BASE_URI = "http://localhost:9000/";
+    private static final String BASE_URI = "http://localhost:8080/api/1.0/";
 
     public static void main(String[] args) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -29,7 +29,7 @@ public class Client {
 
         // prepare request to get all todos
         HttpRequest listTodoRequest = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URI + "todo"))
+                .uri(URI.create(BASE_URI + "todos"))
                 .headers("Authorization","Bearer " + token) //set authorization header accordingly
                 .GET().build();
         HttpResponse<String> listTodoResponse = client.send(listTodoRequest, HttpResponse.BodyHandlers.ofString());
@@ -40,7 +40,7 @@ public class Client {
 
         //add a new To-do
         HttpRequest addTodoRequest = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URI + "todo"))
+                .uri(URI.create(BASE_URI + "todos"))
                 .headers("Content-type", "application/json")
                 .headers("Authorization","Bearer " + token) //set authorization header accordingly
                 .POST(HttpRequest.BodyPublishers.ofString("{\"id\":1, \"title\":\"Pass Software Engineering\", \"description\":\"Do project, Study\"}"))
@@ -54,7 +54,7 @@ public class Client {
 
         // prepare request to get all todos
          listTodoRequest = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URI + "todo"))
+                .uri(URI.create(BASE_URI + "todos"))
                 .headers("Authorization","Bearer " + token) //set authorization header accordingly
                 .GET().build();
          listTodoResponse = client.send(listTodoRequest, HttpResponse.BodyHandlers.ofString());
