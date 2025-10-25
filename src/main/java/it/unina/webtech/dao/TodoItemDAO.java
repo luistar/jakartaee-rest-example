@@ -16,6 +16,16 @@ public class TodoItemDAO {
         if(todo.getTitle() == null || todo.getTitle().isEmpty()){
             throw new IllegalArgumentException("Title must not be empty");
         }
+
+        // Find the highest existing ID
+        int maxId = todos.stream()
+                .mapToInt(TodoItem::getId)
+                .max()
+                .orElse(0);
+
+        // Set the new ID to maxId + 1
+        todo.setId(maxId + 1);
+
         todos.add(todo);
     }
 
